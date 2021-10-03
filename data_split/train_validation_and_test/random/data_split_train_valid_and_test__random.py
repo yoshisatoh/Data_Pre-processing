@@ -1,4 +1,3 @@
-
 #################### Data Pre-processing: Split data into three sets (train, validation, and test) in an random manner ####################
 #
 #  (C) 2021, Yoshimasa (Yoshi) Satoh, CFA 
@@ -83,15 +82,17 @@ Set of data used to provide an unbiased evaluation of a final model fitted on th
 '''
 
 
+
+
 ########## import Python libraries
 
 import sys
 
 import pandas as pd
 
-#from sklearn.model_selection import train_test_split    ##### Option 1.A. Using sklearn 'train_test_split'
+#from sklearn.model_selection import train_test_split    # i. Using Sklearn → ‘train_test_split’
 
-from fast_ml.model_development import train_valid_test_split    ##### Option 1.B. fast_ml 'train_valid_test_split'
+from fast_ml.model_development import train_valid_test_split    # ii. Using Fast_ml → ‘train_valid_test_split’
 
 
 
