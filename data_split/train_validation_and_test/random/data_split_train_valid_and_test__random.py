@@ -122,7 +122,7 @@ test_size  = 1 - train_size - valid_size   #0.1
 ########## 1. Splitting Randomly
 
 
-##### Option 1.B. fast_ml 'train_valid_test_split'
+##### ii. Using Fast_ml → ‘train_valid_test_split’
 
 df = pd.read_csv('df.csv', parse_dates=[datecol], low_memory=False)
 
