@@ -21,8 +21,8 @@
 #
 #Run this script on Terminal of MacOS (or Command Prompt of Windows) as follows:
 #
-#python data_split_train_valid_and_test.py df.csv y date 0.8 0.1 None
-#python data_split_train_valid_and_test.py df.csv y date 0.8 0.1 1
+#python data_split_train_valid_and_test__random.py df.csv y date 0.8 0.1 None
+#python data_split_train_valid_and_test__random.py df.csv y date 0.8 0.1 1
 #
 #Generally,
 #python data_split_train_valid_and_test.py (dfname: data file name) (column name of target y to predict) (column in datetime type) (train_size) (valid_size) (random_state: 'None' for random splitting or integer to fix the splitting result)
