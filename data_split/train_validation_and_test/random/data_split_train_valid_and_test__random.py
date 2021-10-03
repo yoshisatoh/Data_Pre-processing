@@ -21,10 +21,11 @@
 #
 #Run this script on Terminal of MacOS (or Command Prompt of Windows) as follows:
 #
-#python data_split_train_valid_and_test.py df.csv y date 0.8 0.1
+#python data_split_train_valid_and_test.py df.csv y date 0.8 0.1 None
+#python data_split_train_valid_and_test.py df.csv y date 0.8 0.1 1
 #
 #Generally,
-#python data_split_train_valid_and_test.py (dfname: data file name) (column name of target y to predict) (column in datetime type) (train_size) (valid_size)
+#python data_split_train_valid_and_test.py (dfname: data file name) (column name of target y to predict) (column in datetime type) (train_size) (valid_size) (random_state: 'None' for random splitting or integer to fix the splitting result)
 #
 #You do not need to specify test_size and valid size as it is set as follows.
 #(test_size) = 1 - (train_size) - (valid_size)
@@ -114,8 +115,14 @@ train_size = float(sys.argv[4])    #0.8
 
 valid_size = float(sys.argv[5])    #0.1
 
-#test_size  = sys.argv[4]    #0.1
 test_size  = 1 - train_size - valid_size   #0.1
+
+
+#random_state: 'None' for random splitting by using numpy.random, or integer to fix the random splitting result
+if (str(sys.argv[6]) == 'None'):
+    random_state = None
+elif (isinstance(int(sys.argv[6]), int)):
+    random_state = int(sys.argv[6])
 
 
 
@@ -128,7 +135,8 @@ test_size  = 1 - train_size - valid_size   #0.1
 df = pd.read_csv(dfname, parse_dates=[datecol], low_memory=False)
 
 X_train, y_train, X_valid, y_valid, X_test, y_test = train_valid_test_split(df,
-                                                                            target = ycol, 
+                                                                            target = ycol,
+                                                                            random_state = random_state,
                                                                             train_size=train_size,
                                                                             valid_size=valid_size,
                                                                             test_size=test_size)
