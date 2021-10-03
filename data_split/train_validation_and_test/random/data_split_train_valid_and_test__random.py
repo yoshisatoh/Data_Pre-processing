@@ -124,7 +124,7 @@ test_size  = 1 - train_size - valid_size   #0.1
 
 ##### ii. Using Fast_ml → ‘train_valid_test_split’
 
-df = pd.read_csv('df.csv', parse_dates=[datecol], low_memory=False)
+df = pd.read_csv(dfname, parse_dates=[datecol], low_memory=False)
 
 X_train, y_train, X_valid, y_valid, X_test, y_test = train_valid_test_split(df,
                                                                             target = ycol, 
