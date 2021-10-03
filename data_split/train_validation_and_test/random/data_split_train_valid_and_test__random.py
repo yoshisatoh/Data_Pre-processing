@@ -37,6 +37,7 @@
 #https://towardsdatascience.com/how-to-split-data-into-three-sets-train-validation-and-test-and-why-e50d22d3e54c
 #
 #See the section:
+#1. Splitting Randomly
 #ii. Using Fast_ml → ‘train_valid_test_split’
 #
 #
