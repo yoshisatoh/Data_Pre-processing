@@ -77,6 +77,17 @@ import sys
 
 import nltk
 
+
+import ssl
+
+try:
+    _create_unverified_https_context = ssl._create_unverified_context
+except AttributeError:
+    pass
+else:
+    ssl._create_default_https_context = _create_unverified_https_context
+
+
 #1. Tokenizing
 from nltk.tokenize import sent_tokenize, word_tokenize
 #nltk.download('punkt')    #You might have to run this first.
@@ -394,15 +405,16 @@ tree = chunk_parser.parse(text_file_words_without_stop_words_stemmed_tagged)
 tree.draw()
 
 TreeView(tree)._cframe.print_to_file('tree.chunking.ps')
-
+#You can use Preview application on MacOS to open a ps (PostScript) file and then export it as an image file (e.g., png).
 '''
 import os
-os.system('convert output.ps output.png')
+os.system('convert tree.chunking.ps tree.chunking.png')
 '''
 '''
 from PIL import Image
-Image.open("tree.ps").save("tree.png")
+Image.open("tree.chunking.ps").save("tree.chunking.png")
 '''
+
 
 
 
