@@ -14,7 +14,7 @@
 #
 ########## Input Data File(s)
 #
-#
+#N/A (This program gets text data via the Internet.)
 #
 #
 ########## Usage Instructions
@@ -29,6 +29,8 @@
 #
 ########## Output Data File(s)
 #
+#df.csv
+#df_sorted.csv
 #
 #
 ########## References
@@ -149,7 +151,7 @@ for key,val in freq.items():
 '''
 
 
-f = open('freq.csv' , 'w', encoding="utf-8")
+f = open('df.csv' , 'w', encoding="utf-8")
 writer = csv.writer(f, lineterminator='\n')
 #
 for key,val in freq.items():
@@ -161,7 +163,7 @@ print(f.closed)
 
 
 
-df = pd.read_csv('freq.csv', sep=',', header=None, index_col=False)
+df = pd.read_csv('df.csv', sep=',', header=None, index_col=False)
 df = df.rename(columns={0: "key", 1: "val"})
 print(df.head())
 #print(df.values)
