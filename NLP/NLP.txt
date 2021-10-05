@@ -36,6 +36,5 @@ To solve this problem, we employ coreference resolution which tracks pronouns ac
 
 After going through these steps of data-preprocessing, our text is ready for analysis.
 
-(Please refer to the original page at towardsdatascience.com for more details.)
 '''
 
