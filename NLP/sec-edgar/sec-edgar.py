@@ -197,7 +197,6 @@ dl = Downloader()
 
 for ticker_CIK in list_tickers_CIKs:
     for filing_type in dl.supported_filings:
-        #
         dl.get(filing_type, ticker_CIK, after=arg_date_after, before=arg_date_before)
-        #dl.get(filing_type, ticker_CIK, after="2017-01-01", before="2017-03-25", verify=False)
+
 
