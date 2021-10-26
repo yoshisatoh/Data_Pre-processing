@@ -20,6 +20,7 @@
 #
 #Run this script on Terminal of MacOS (or Command Prompt of Windows) as follows:
 #
+#python nlpssentiment.py 'The food was great!'
 #python nlpssentiment.py "The food was great!"
 #python nlpssentiment.py "The food was not great!"
 #python nlpssentiment.py "The food was not that bad!"
