@@ -13,7 +13,6 @@
 #
 ########## Input Data File(s)
 #
-#Tweets.csv
 #
 #
 ########## Usage Instructions
