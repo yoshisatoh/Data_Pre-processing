@@ -1,0 +1,25 @@
+words_sentences,neg,neu,pos,compound
+Great.,0.0,0.0,1.0,0.6249
+Good.,0.0,0.0,1.0,0.4404
+Not great.,0.767,0.233,0.0,-0.5096
+Bad.,1.0,0.0,0.0,-0.5423
+Awful.,1.0,0.0,0.0,-0.4588
+Tesla is great.,0.0,0.328,0.672,0.6249
+Tesla is good.,0.0,0.408,0.592,0.4404
+Tesla is not great.,0.523,0.477,0.0,-0.5096
+Tesla is bad.,0.636,0.364,0.0,-0.5423
+Tesla is awful.,0.6,0.4,0.0,-0.4588
+Tesla absolutely goes up.,0.0,1.0,0.0,0.0
+Tesla definitely goes up.,0.0,0.526,0.474,0.4019
+Tesla clearly goes up.,0.0,0.526,0.474,0.4019
+Tesla certainly goes up.,0.0,0.556,0.444,0.34
+Tesla surely goes up.,0.0,0.508,0.492,0.4404
+Tesla probably goes up.,0.0,1.0,0.0,0.0
+Tesla most likely goes up.,0.0,1.0,0.0,0.0
+Tesla likely goes up.,0.0,1.0,0.0,0.0
+Tesla presumably goes up.,0.0,1.0,0.0,0.0
+Tesla maybe goes up.,0.0,1.0,0.0,0.0
+Tesla perhaps goes up.,0.0,1.0,0.0,0.0
+Tesla could go up.,0.0,1.0,0.0,0.0
+Tesla might go up.,0.0,1.0,0.0,0.0
+Tesla possibly goes up.,0.0,1.0,0.0,0.0

@@ -1,0 +1,25 @@
+words_sentences,pos_neg,value
+Great.,POSITIVE,0.9944
+Good.,POSITIVE,0.942
+Not great.,NEGATIVE,0.9996
+Bad.,NEGATIVE,0.9999
+Awful.,NEGATIVE,1.0
+Tesla is great.,POSITIVE,0.9973
+Tesla is good.,POSITIVE,0.9949
+Tesla is not great.,NEGATIVE,0.9999
+Tesla is bad.,NEGATIVE,0.9993
+Tesla is awful.,NEGATIVE,0.9999
+Tesla absolutely goes up.,POSITIVE,0.9996
+Tesla definitely goes up.,POSITIVE,0.9996
+Tesla clearly goes up.,POSITIVE,0.9988
+Tesla certainly goes up.,POSITIVE,0.9993
+Tesla surely goes up.,POSITIVE,0.9986
+Tesla probably goes up.,POSITIVE,0.991
+Tesla most likely goes up.,POSITIVE,0.9599
+Tesla likely goes up.,POSITIVE,0.9704
+Tesla presumably goes up.,POSITIVE,0.9111
+Tesla maybe goes up.,POSITIVE,0.7729
+Tesla perhaps goes up.,POSITIVE,0.8721
+Tesla could go up.,POSITIVE,0.9971
+Tesla might go up.,POSITIVE,0.9811
+Tesla possibly goes up.,POSITIVE,0.956

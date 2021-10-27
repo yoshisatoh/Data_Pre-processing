@@ -1,0 +1,25 @@
+words_sentences,polarity,subjectivity
+Great.,0.8,0.75
+Good.,0.7,0.6000000000000001
+Not great.,-0.4,0.75
+Bad.,-0.6999999999999998,0.6666666666666666
+Awful.,-1.0,1.0
+Tesla is great.,0.8,0.75
+Tesla is good.,0.7,0.6000000000000001
+Tesla is not great.,-0.4,0.75
+Tesla is bad.,-0.6999999999999998,0.6666666666666666
+Tesla is awful.,-1.0,1.0
+Tesla absolutely goes up.,0.2,0.9
+Tesla definitely goes up.,0.0,0.5
+Tesla clearly goes up.,0.10000000000000002,0.3833333333333333
+Tesla certainly goes up.,0.21428571428571427,0.5714285714285714
+Tesla surely goes up.,0.5,0.8888888888888888
+Tesla probably goes up.,0.0,0.0
+Tesla most likely goes up.,0.25,0.75
+Tesla likely goes up.,0.0,1.0
+Tesla presumably goes up.,0.0,0.0
+Tesla maybe goes up.,0.0,0.0
+Tesla perhaps goes up.,0.0,0.0
+Tesla could go up.,0.0,0.0
+Tesla might go up.,0.0,0.0
+Tesla possibly goes up.,0.0,1.0
