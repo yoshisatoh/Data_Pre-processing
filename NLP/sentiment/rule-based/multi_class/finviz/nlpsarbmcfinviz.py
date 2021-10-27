@@ -76,6 +76,17 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 finwiz_url = 'https://finviz.com/quote.ashx?t='
 
+import ssl
+try:
+    _create_unverified_https_context = ssl._create_unverified_context
+except AttributeError:
+    pass
+else:
+    ssl._create_default_https_context = _create_unverified_https_context
+
+import warnings
+warnings.simplefilter('ignore')
+
 
 
 
