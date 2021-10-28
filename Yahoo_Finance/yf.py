@@ -4,8 +4,8 @@
 #
 #  All rights reserved.
 #
-# Created:      2021/10/27
-# Last Updated: 2021/10/27
+# Created:      2021/10/28
+# Last Updated: 2021/10/28
 #
 # Github:
 # https://github.com/yoshisatoh/Data_Pre-processing/blob/main/Yahoo_Finance/yf.py
