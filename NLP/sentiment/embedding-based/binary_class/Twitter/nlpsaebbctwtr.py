@@ -5,7 +5,7 @@
 #  All rights reserved.
 #
 # Created:      2021/10/27
-# Last Updated: 2021/10/27
+# Last Updated: 2021/10/28
 #
 # Github:
 # https://github.com/yoshisatoh/Data_Pre-processing/tree/main/NLP/sentiment/embedding-based/binary_class/Twitter/nlpsaebbctwtr.py
@@ -69,6 +69,14 @@ Apply for a developer account
 #pip install --upgrade textblob --trusted-host pypi.org --trusted-host files.pythonhosted.org
 #pip install --upgrade vaderSentiment --trusted-host pypi.org --trusted-host files.pythonhosted.org
 #pip install --upgrade flair --trusted-host pypi.org --trusted-host files.pythonhosted.org
+
+
+#If you see an error:
+#TypeError: Cannot interpret '<attribute 'dtype' of 'numpy.generic' objects>' as a data type
+#
+#then use numpy 1.18.1 to avoid incompatibility with old pandas
+#pip install --upgrade numpy==1.18.1
+
 
 
 
@@ -169,8 +177,8 @@ for twt in tweets.json()['statuses']:
 print(df.head())
 df.to_csv('df.csv', header=True, index=True)
 
-exit()
-######################################
+#exit()
+
 
 
 ########## 4. Sentiment Analysis
@@ -232,9 +240,10 @@ sentiments = []
 
 #for tweet in tweets['text'].to_list():
 #for tweet in tweets.json()['full_text']:
-for twt in tweets.json()['statuses']:
+#for twt in tweets.json()['statuses']:
+for tweet in df['text']:
     #
-    tweet = get_data(twt)['text']
+    #tweet = get_data(twt)['text']
     #
     tweet = whitespace.sub(' ', tweet)
     tweet = web_address.sub('', tweet)
@@ -253,8 +262,25 @@ for twt in tweets.json()['statuses']:
 #tweets['sentiment'] = sentiments
 
 
-print(tweets.head())
-tweets.to_csv('tweets.csv', header=True, index=True)
+#print(tweets.head())
+#tweets.to_csv('tweets.csv', header=True, index=True)
+
+print(type(probs))    #<class 'list'>
+print(len(probs))     #100
+df_probs = pd.DataFrame(probs, columns=['probs'])
+print(df_probs.head())
+#df_probs.to_csv('df_probs.csv', header=True, index=True)
+
+
+#sentiments.to_csv('sentiments.csv', header=True, index=True)
+df_sentiments = pd.DataFrame(sentiments, columns=['sentiments'])
+print(df_sentiments.head())
+#df_sentiments.to_csv('df_sentiments.csv', header=True, index=True)
+
+
+df_df_probs = pd.merge(df, df_probs, left_index=True, right_index=True)
+df_df_probs_df_sentiments = pd.merge(df_df_probs, df_sentiments, left_index=True, right_index=True)
+df_df_probs_df_sentiments.to_csv('df_df_probs_df_sentiments.csv', header=True, index=True)
 
 
 
@@ -263,10 +289,14 @@ tweets.to_csv('tweets.csv', header=True, index=True)
 
 ticker = yf.Ticker(arg_ticker)
 
+arg_start    = '2020-10-28'
+arg_end      = '2021-10-27'
+arg_interval = '1d'    # valid intervals: 1m,2m,5m,15m,30m,60m,90m,1h,1d,5d,1wk,1mo,3mo (optional, default is '1d')
+
 ticker_history = ticker.history(
-    start    = (data['created_at'].min()).strftime('%Y-%m-%d'),
-    end      = data['created_at'].max().strftime('%Y-%m-%d'),
-    interval = '60m'
+    start    = arg_start,
+    end      = arg_end,
+    interval = arg_interval
 ).reset_index()
 
 '''
