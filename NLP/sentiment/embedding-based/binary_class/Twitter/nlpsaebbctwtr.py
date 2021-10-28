@@ -87,6 +87,7 @@ import flair
 
 import yfinance as yf
 
+import re
 
 
 
@@ -131,16 +132,17 @@ Text embeddings are a form of word representation in NLP in which synonymically 
 #https://api.twitter.com/1.1/tweets/search/recent
 
 #https://developer.twitter.com/en/docs/twitter-api/v1/tweets/search/api-reference/get-search-tweets
-params = {'q': SEARCH_QUERY
+params = {'q': SEARCH_QUERY,
           'tweet_mode': 'extended',
           'lang': 'en',
           'count': str(SEARCH_COUNT)
 }
-response = requests.get(
+#response = requests.get(
+tweets = requests.get(
     'https://api.twitter.com/1.1/search/tweets.json',
     params=params,
     headers={'authorization': 'Bearer ' + BEARER_TOKEN}
-})
+)
 
 
 
@@ -158,14 +160,17 @@ def get_data(tweet):
 
 df = pd.DataFrame()
 
-for tweet in response.json()['statuses']:
-    row = get_data(tweet)
+#for twt in response.json()['statuses']:
+for twt in tweets.json()['statuses']:
+    row = get_data(twt)
     df = df.append(row, ignore_index=True)
 
 
 print(df.head())
+df.to_csv('df.csv', header=True, index=True)
 
-
+exit()
+######################################
 
 
 ########## 4. Sentiment Analysis
@@ -176,10 +181,11 @@ print(df.head())
 sentiment_model = flair.models.TextClassifier.load('en-sentiment')
 
 #tokenize our text
-sentence = flair.data.Sentence(TEXT)
+#sentence = flair.data.Sentence(TEXT)
+#sentence = flair.data.Sentence(<TEXT HERE>)
 
 #add the sentiment rating to the data stored in sentence
-sentiment_model.predict(sentence)
+#sentiment_model.predict(sentence)
 
 
 ##### Analyzing Tweets
@@ -191,21 +197,26 @@ user        = re.compile(r"(?i)@[a-z0-9_]+")
 
 
 ##### Have our clean(ish) tweets
+
+#print(type(SEARCH_QUERY))
+#print(type(tweet))
+#print(tweet)
+
 # we then use the sub method to replace anything matching
-tweet = whitespace.sub(' ', tweet)
-tweet = web_address.sub('', tweet)
-tweet = searchq.sub(SEARCH_QUERY, tweet)
-tweet = user.sub('', tweet)
+#tweet = whitespace.sub(' ', tweet)
+#tweet = web_address.sub('', tweet)
+#tweet = searchq.sub(SEARCH_QUERY, tweet)
+#tweet = user.sub('', tweet)
 
 
 ##### Tokenize it by converting it into a sentence object, and then predict the sentiment:
-sentence = flair.data.Sentence(tweet)
-sentiment_model.predict(sentence)
+#sentence = flair.data.Sentence(tweet)
+#sentiment_model.predict(sentence)
 
 
 ##### extract our predictions and add them to our tweets dataframe
-probability = sentence.labels[0].score  # numerical value 0-1
-sentiment = sentence.labels[0].value  # 'POSITIVE' or 'NEGATIVE'
+#probability = sentence.labels[0].score  # numerical value 0-1
+#sentiment = sentence.labels[0].value  # 'POSITIVE' or 'NEGATIVE'
 
 
 # we will append probability and sentiment preds later
@@ -213,9 +224,23 @@ probs = []
 sentiments = []
 
 # use regex expressions (in clean function) to clean tweets
-tweets['text'] = tweets['text'].apply(clean)
+#tweets['text'] = tweets['text'].apply(clean)
 
-for tweet in tweets['text'].to_list():
+#print(type(tweets))
+#print(tweets['text'])
+
+
+#for tweet in tweets['text'].to_list():
+#for tweet in tweets.json()['full_text']:
+for twt in tweets.json()['statuses']:
+    #
+    tweet = get_data(twt)['text']
+    #
+    tweet = whitespace.sub(' ', tweet)
+    tweet = web_address.sub('', tweet)
+    tweet = searchq.sub(SEARCH_QUERY, tweet)
+    tweet = user.sub('', tweet)
+    #
     # make prediction
     sentence = flair.data.Sentence(tweet)
     sentiment_model.predict(sentence)
@@ -224,8 +249,8 @@ for tweet in tweets['text'].to_list():
     sentiments.append(sentence.labels[0].value)  # 'POSITIVE' or 'NEGATIVE'
 
 # add probability and sentiment predictions to tweets dataframe
-tweets['probability'] = probs
-tweets['sentiment'] = sentiments
+#tweets['probability'] = probs
+#tweets['sentiment'] = sentiments
 
 
 print(tweets.head())
