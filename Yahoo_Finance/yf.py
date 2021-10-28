@@ -1,4 +1,4 @@
-#################### Data Pre-processing: Natural language processing (NLP) for Sentiment Analysis (Embedding-based, Binary Class, Data on Twitter) ####################
+#################### Data Pre-processing: Stock Prices on Yahoo Finance ####################
 #
 #  (C) 2021, Yoshimasa (Yoshi) Satoh, CFA 
 #
