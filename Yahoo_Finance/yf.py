@@ -8,7 +8,7 @@
 # Last Updated: 2021/10/27
 #
 # Github:
-# https://github.com/yoshisatoh/Data_Pre-processing/Yahoo_Finance/tree/main/yf.py
+# https://github.com/yoshisatoh/Data_Pre-processing/blob/main/Yahoo_Finance/yf.py
 #
 #
 ########## Input Data File(s)
