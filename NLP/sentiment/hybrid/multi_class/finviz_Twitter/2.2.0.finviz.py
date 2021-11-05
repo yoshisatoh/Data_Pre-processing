@@ -8,7 +8,7 @@
 # Last Updated: 2021/11/03
 #
 # Github:
-# https://github.com/yoshisatoh/CFA/blob/main/2.2.0.finviz.py
+# https://github.com/yoshisatoh/Data_Pre-processing/blob/main/NLP/sentiment/hybrid/multi_class/finviz_Twitter/2.2.0.finviz.py
 #
 #
 ########## Input Data File(s)
