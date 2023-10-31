@@ -5,7 +5,7 @@
 #  All rights reserved.
 #
 # Created:      2021/10/03
-# Last Updated: 2021/10/03
+# Last Updated: 2023/10/31
 #
 # Github:
 # https://github.com/yoshisatoh/Data_Pre-processing/tree/main/data_split/train_validation_and_test/random/data_split_train_valid_and_test__cs_random.py
@@ -29,6 +29,16 @@
 #
 #You do not need to specify test_size and valid size as it is set as follows.
 #(test_size) = 1 - (train_size) - (valid_size)
+#
+#
+# If you see the following error message,
+# ModuleNotFoundError: No module named 'fast_ml'
+#
+# then try
+#pip  install fast_ml
+# or
+#pip3 install fast_ml
+#
 #
 #
 ########## References
